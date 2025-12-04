@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6个输入框页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+        }
+        
+        .autocomplete-note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        #submitBtn {
+            background-color: #4a90e2;
+            color: white;
+        }
+        
+        #submitBtn:hover {
+            background-color: #3a80d2;
+        }
+        
+        #resetBtn {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        #resetBtn:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>6个输入框表单</h1>
+        
+        <form id="simpleForm">
+            <!-- 输入框1 -->
+            <div class="input-group">
+                <label for="fullname">姓名</label>
+                <input type="text" id="fullname" autocomplete="name">
+                <div class="autocomplete-note">autocomplete="name"</div>
+            </div>
+            
+            <!-- 姓和名分开 -->
+            <div class="input-group">
+                <label for="lastname">姓 (Last Name)</label>
+                <input type="text" id="lastname" autocomplete="family-name">
+                <div class="autocomplete-note">autocomplete="family-name"</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="firstname">名 (First Name)</label>
+                <input type="text" id="firstname" autocomplete="given-name">
+                <div class="autocomplete-note">autocomplete="given-name"</div>
+            </div>
+            
+            <!-- 输入框2 -->
+            <div class="input-group">
+                <label for="useremail">邮箱</label>
+                <input type="email" id="useremail" autocomplete="email">
+                <div class="autocomplete-note">autocomplete="email"</div>
+            </div>
+            
+            <!-- 输入框3 -->
+            <div class="input-group">
+                <label for="userphone">电话</label>
+                <input type="tel" id="userphone" autocomplete="tel">
+                <div class="autocomplete-note">autocomplete="tel"</div>
+            </div>
+            
+            <!-- 输入框4 -->
+            <div class="input-group">
+                <label for="userzip">邮编</label>
+                <input type="text" id="userzip" autocomplete="postal-code">
+                <div class="autocomplete-note">autocomplete="postal-code"</div>
+            </div>
+            
+            <!-- 输入框5 -->
+            <div class="input-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" autocomplete="username">
+                <div class="autocomplete-note">autocomplete="username"</div>
+            </div>
+            
+            <!-- 输入框6 -->
+            <div class="input-group">
+                <label for="userpassword">密码</label>
+                <input type="password" id="userpassword" autocomplete="new-password">
+                <div class="autocomplete-note">autocomplete="new-password"</div>
+            </div>
+            
+            <div class="buttons">
+                <button type="submit" id="submitBtn">提交</button>
+                <button type="reset" id="resetBtn">重置</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // 表单提交处理 - 修改此处跳转到百度
+        document.getElementById('simpleForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // 阻止表单默认提交行为
+            
+            // 显示提交提示
+            alert('表单已提交！即将跳转到百度页面...');
+            
+            // 跳转到百度页面
+            window.location.href = 'https://www.baidu.com';
+        });
+        
+        // 为所有输入框添加简单的焦点效果
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.backgroundColor = '#f9f9f9';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.backgroundColor = '';
+            });
+        });
+    </script>
+</body>
+</html>
